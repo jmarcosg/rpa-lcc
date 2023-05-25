@@ -60,21 +60,11 @@ public class BurbujasEnAccion {
     }
 
     public static boolean validarMismoColor(String color1, String color2) {
-        boolean resultado = false;
-
-        if (color1.equals(color2)) {
-            resultado = true;
-        }
-
-        return resultado;
+        return color1.equals(color2);
     }
 
     public static int calcularPuntaje(int valor1, int valor2) {
-        int resultado;
-
-        resultado = valor1 + valor2;
-
-        return resultado;
+        return valor1 + valor2;
     }
 
     public static String calcularGanador(String nombreUsuario1, int resultadoUsuario1, String nombreUsuario2, int resultadoUsuario2 ) {
