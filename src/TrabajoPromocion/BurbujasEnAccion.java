@@ -2,6 +2,12 @@ package TrabajoPromocion;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Diaz Amicone, Regina Antonella
+ * @author Gonzalez, Juan Marcos
+ * @author Granchelli, Florencia
+ */
 public class BurbujasEnAccion {
     public static void main(String[] args) {
         // Creo a Scanner
