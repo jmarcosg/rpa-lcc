@@ -56,7 +56,22 @@ public class BurbujasEnAccion {
     }
 
     public static int calcularPuntaje(int valor1, int valor2) {
-        return valor1 + valor2;
+        int resultado = 0;
+
+        // Calculo el resultado parcial
+        resultado = valor1 + valor2;
+
+        // Reglas para puntajes
+        /*
+        * Si la suma de los dos valores es par, entonces suma 10 puntos extra
+        * Si la suma de los dos valores es impar y menor a 10, entonces duplica su puntaje */
+        if (resultado % 2 == 0) {
+            resultado += 10;
+        } else if ((resultado % 2 == 1) && resultado < 10) {
+            resultado *= 2;
+        }
+
+        return resultado;
     }
 
     public static String calcularGanador(String nombreUsuario1, int resultadoUsuario1, String nombreUsuario2, int resultadoUsuario2 ) {
@@ -106,16 +121,14 @@ public class BurbujasEnAccion {
     }
 
     public static String nombreAleatorio(){
-        // ejemplo para definir un valor aleatorio entre varias posibilidades
-        // en este caso nombres
         String arrayNombres[] = {"Anastasia", "Florencia", "Regina", "Rocío", "Agostina", "Lucía", "Rigoberto", "Juan", "Carlos", "Pedro", "Tito", "Cacho"};
+
         return arrayNombres[intAleatorio(0, arrayNombres.length - 1)];
     }
 
     public static String colorAleatorio(){
-        // ejemplo para definir un valor aleatorio entre varias posibilidades
-        // en este caso colores
         String arrayColores[] = {"rojo", "verde", "azul", "amarillo", "celeste", "rosado"};
+
         return arrayColores[intAleatorio(0, arrayColores.length - 1)];
     }
 
