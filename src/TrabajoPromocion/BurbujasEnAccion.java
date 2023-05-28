@@ -88,26 +88,8 @@ public class BurbujasEnAccion {
         return mensaje;
     }
 
-    public static double doubleAleatorio(int min, int max){
-        return Math.random() * (max-min) + min;
-    }
-
     public static int intAleatorio(int min, int max){
         return (int) doubleAleatorio(min, max);
-    }
-
-    public static char charAleatorio(){
-        char a;
-
-        if (Math.random() >= 0.5){
-            // letras mayúsculas
-            a = (char) intAleatorio(97, 123);
-        } else {
-            // letras minúsculas
-            a = (char) intAleatorio(65, 91);
-        }
-
-        return a;
     }
 
     public static String stringAleatorio(int tam){
