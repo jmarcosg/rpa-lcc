@@ -1,7 +1,5 @@
 package TrabajoPromocion;
-
-import java.util.Scanner;
-
+git
 /**
  *
  * @author Diaz Amicone, Regina Antonella
@@ -10,9 +8,6 @@ import java.util.Scanner;
  */
 public class BurbujasEnAccion {
     public static void main(String[] args) {
-        // Creo a Scanner
-        Scanner sc = new Scanner(System.in);
-
         // Declaración y asignación de variables
         int resultadoUsuario1 = 0, resultadoUsuario2 = 0, valorBola1Usuario1, valorBola2Usuario1, valorBola1Usuario2, valorBola2Usuario2;
         String nombreUsuario1, nombreUsuario2, colorBola1Usuario1, colorBola2Usuario1, colorBola1Usuario2, colorBola2Usuario2, mensajeResultado;
@@ -62,7 +57,7 @@ public class BurbujasEnAccion {
     }
 
     public static int calcularPuntaje(int valor1, int valor2) {
-        int resultado = 0;
+        int resultado;
 
         // Calculo el resultado parcial
         resultado = valor1 + valor2;
@@ -81,7 +76,7 @@ public class BurbujasEnAccion {
     }
 
     public static String calcularGanador(String nombreUsuario1, int resultadoUsuario1, String nombreUsuario2, int resultadoUsuario2 ) {
-        String mensaje = "";
+        String mensaje;
 
         if (resultadoUsuario1 > resultadoUsuario2) {
             mensaje = nombreUsuario1 + " le ganó a " + nombreUsuario2 + " " + resultadoUsuario1 + " a " + resultadoUsuario2 + ".";
@@ -94,18 +89,12 @@ public class BurbujasEnAccion {
         return mensaje;
     }
 
-    public static int intAleatorio(int min, int max){
-        return (int) doubleAleatorio(min, max);
+    public static double doubleAleatorio(int min, int max){
+        return Math.random() * (max-min) + min;
     }
 
-    public static String stringAleatorio(int tam){
-        String res = "";
-
-        for(int i = 0; i < tam; i++){
-            res = res + charAleatorio();
-        }
-
-        return res;
+    public static int intAleatorio(int min, int max){
+        return (int) doubleAleatorio(min, max);
     }
 
     public static String nombreAleatorio(){
