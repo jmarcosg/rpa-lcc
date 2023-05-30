@@ -1,5 +1,5 @@
 package TrabajoPromocion;
-git
+
 /**
  *
  * @author Diaz Amicone, Regina Antonella
