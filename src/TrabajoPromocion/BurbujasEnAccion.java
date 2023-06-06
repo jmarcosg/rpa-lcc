@@ -9,9 +9,9 @@ package TrabajoPromocion;
 public class BurbujasEnAccion {
     public static void main(String[] args) {
         // Declaración y asignación de variables
-        int resultadoUsuario1 = 0, resultadoUsuario2 = 0, valorBola1Usuario1, valorBola2Usuario1, valorBola1Usuario2, valorBola2Usuario2;
-        String nombreUsuario1, nombreUsuario2, colorBola1Usuario1, colorBola2Usuario1, colorBola1Usuario2, colorBola2Usuario2, mensajeResultado;
-        boolean bolasMismoColorUsuario1, bolasMismoColorUsuario2;
+        int cantJugadores = 2, resultadoUsuario1 = 0, resultadoUsuario2 = 0, valorBola1, valorBola2;
+        String nombreUsuario1, nombreUsuario2, colorBola1, colorBola2, mensajeResultado;
+        boolean bolasMismoColor;
 
         // Asignación de nombre aleatorios de usuarios
         nombreUsuario1 = nombreAleatorio();
@@ -21,35 +21,33 @@ public class BurbujasEnAccion {
         * Asignación de valor aleatorio para bolas de usuarios
         * Serán aleatorios en rango de 0 a 15
         */
-        valorBola1Usuario1 = intAleatorio(0, 15);
-        valorBola2Usuario1 = intAleatorio(0, 15);
-        valorBola1Usuario2 = intAleatorio(0, 15);
-        valorBola2Usuario2 = intAleatorio(0, 15);
+        for (int i = 0; i <= cantJugadores; i++) {
+            valorBola1 = intAleatorio(0, 15);
+            valorBola2 = intAleatorio(0, 15);
 
-        /*
-        * Asignación de color aleatorio para bolas de usuarios
-        */
-        colorBola1Usuario1 = colorAleatorio();
-        colorBola2Usuario1 = colorAleatorio();
-        colorBola1Usuario2 = colorAleatorio();
-        colorBola2Usuario2 = colorAleatorio();
+            colorBola1 = colorAleatorio();
+            colorBola2 = colorAleatorio();
 
-        // Llamo al módulo correspondiente para validar si las bolas son del mismo color
-        bolasMismoColorUsuario1 = validarMismoColor(colorBola1Usuario1, colorBola2Usuario1);
-        bolasMismoColorUsuario2 = validarMismoColor(colorBola1Usuario2, colorBola2Usuario2);
+            // Valido si los colores de las bolas son del mismo color
+            bolasMismoColor = validarMismoColor(colorBola1, colorBola2);
 
-        // Si las bolas son iguales, calculo el puntaje del usuario
-        if (bolasMismoColorUsuario1) {
-            resultadoUsuario1 = calcularPuntaje(valorBola1Usuario1, valorBola2Usuario1);
-        }
-
-        if (bolasMismoColorUsuario2) {
-            resultadoUsuario2 = calcularPuntaje(valorBola1Usuario2, valorBola2Usuario2);
+            // Si las bolas son iguales, calculo el puntaje del usuario
+            if ((bolasMismoColor) && (i == 1)) {
+                resultadoUsuario1 = calcularPuntaje(valorBola1, valorBola2);
+            } else if ((bolasMismoColor) && (i == 2)) {
+                resultadoUsuario2 = calcularPuntaje(valorBola1, valorBola2);
+            }
         }
 
         mensajeResultado = calcularGanador(nombreUsuario1, resultadoUsuario1, nombreUsuario2, resultadoUsuario2);
 
         System.out.println(mensajeResultado);
+    }
+
+    public static void asignarValores (String nombre, int valorBola1, int valorBola2) {
+        nombre = nombreAleatorio();
+        valorBola1 = intAleatorio(0, 15);
+        valorBola2 = intAleatorio(0, 15);
     }
 
     public static boolean validarMismoColor(String color1, String color2) {
