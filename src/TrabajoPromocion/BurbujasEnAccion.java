@@ -27,6 +27,7 @@ public class BurbujasEnAccion {
             System.out.println(resultadoUsuario1 % 7 == 0);
             System.out.println(resultadoUsuario2 % 7 == 0);
 
+            // Hasta que uno de los resultados sea distinto 0 y múltiplo de 7, la partida no para
             if ((resultadoUsuario1 % 7 == 0 && resultadoUsuario1 != 0) || (resultadoUsuario2 % 7 == 0 && resultadoUsuario2 != 0)) {
                 esFinPartida = true;
             }
@@ -38,18 +39,23 @@ public class BurbujasEnAccion {
     }
 
     public static int jugarBurbujas (int resultado) {
+        // Generaliza la asignación y cálculo de resultados de los usuarios
+        // Declaración de variables
         int valorBola1, valorBola2;
         String colorBola1, colorBola2;
         boolean bolasMismoColor;
 
+        // Asignación de valores aleatorios
         valorBola1 = intAleatorio(0, 15);
         valorBola2 = intAleatorio(0, 15);
 
         colorBola1 = colorAleatorio();
         colorBola2 = colorAleatorio();
 
+        // Valido si las bolas son del mismo color
         bolasMismoColor = validarMismoColor(colorBola1, colorBola2);
 
+        // Si son del mismo color, calculo el resultado del usuario
         if (bolasMismoColor) {
             resultado = calcularPuntaje(valorBola1, valorBola2);
         }
@@ -63,7 +69,7 @@ public class BurbujasEnAccion {
     }
 
     public static int calcularPuntaje(int valor1, int valor2) {
-        // calcula el puntaje de un usuario
+        // Calcula el puntaje de un usuario
         int resultado;
 
         // Calculo el resultado parcial
@@ -83,7 +89,7 @@ public class BurbujasEnAccion {
     }
 
     public static String calcularGanador(String nombreUsuario1, int resultadoUsuario1, String nombreUsuario2, int resultadoUsuario2 ) {
-        // calcula quien ganó la partida
+        // Calcula quien ganó la partida
         String mensaje;
 
         if (resultadoUsuario1 > resultadoUsuario2) {
