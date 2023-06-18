@@ -9,45 +9,52 @@ package TrabajoPromocion;
 public class BurbujasEnAccion {
     public static void main(String[] args) {
         // Declaración y asignación de variables
-        int cantJugadores = 2, resultadoUsuario1 = 0, resultadoUsuario2 = 0, valorBola1, valorBola2;
-        String nombreUsuario1, nombreUsuario2, colorBola1, colorBola2, mensajeResultado;
-        boolean bolasMismoColor;
+        int resultadoUsuario1 = 0, resultadoUsuario2 = 0;
+        String nombreUsuario1, nombreUsuario2, mensajeResultado;
+        boolean esFinPartida = false;
 
         // Asignación de nombre aleatorios de usuarios
         nombreUsuario1 = nombreAleatorio();
         nombreUsuario2 = nombreAleatorio();
 
-        /*
-        * Asignación de valor aleatorio para bolas de usuarios
-        * Serán aleatorios en rango de 0 a 15
-        */
-        for (int i = 0; i <= cantJugadores; i++) {
-            valorBola1 = intAleatorio(0, 15);
-            valorBola2 = intAleatorio(0, 15);
+        do {
+            resultadoUsuario1 = jugarBurbujas(resultadoUsuario1);
+            resultadoUsuario2 = jugarBurbujas(resultadoUsuario2);
 
-            colorBola1 = colorAleatorio();
-            colorBola2 = colorAleatorio();
+            System.out.println("res usu1: " + resultadoUsuario1);
+            System.out.println("res usu2: " + resultadoUsuario2);
 
-            // Valido si los colores de las bolas son del mismo color
-            bolasMismoColor = validarMismoColor(colorBola1, colorBola2);
+            System.out.println(resultadoUsuario1 % 7 == 0);
+            System.out.println(resultadoUsuario2 % 7 == 0);
 
-            // Si las bolas son iguales, calculo el puntaje del usuario
-            if ((bolasMismoColor) && (i == 1)) {
-                resultadoUsuario1 = calcularPuntaje(valorBola1, valorBola2);
-            } else if ((bolasMismoColor) && (i == 2)) {
-                resultadoUsuario2 = calcularPuntaje(valorBola1, valorBola2);
+            if ((resultadoUsuario1 % 7 == 0 && resultadoUsuario1 != 0) || (resultadoUsuario2 % 7 == 0 && resultadoUsuario2 != 0)) {
+                esFinPartida = true;
             }
-        }
+        } while (!esFinPartida);
 
         mensajeResultado = calcularGanador(nombreUsuario1, resultadoUsuario1, nombreUsuario2, resultadoUsuario2);
 
         System.out.println(mensajeResultado);
     }
 
-    public static void asignarValores (String nombre, int valorBola1, int valorBola2) {
-        nombre = nombreAleatorio();
+    public static int jugarBurbujas (int resultado) {
+        int valorBola1, valorBola2;
+        String colorBola1, colorBola2;
+        boolean bolasMismoColor;
+
         valorBola1 = intAleatorio(0, 15);
         valorBola2 = intAleatorio(0, 15);
+
+        colorBola1 = colorAleatorio();
+        colorBola2 = colorAleatorio();
+
+        bolasMismoColor = validarMismoColor(colorBola1, colorBola2);
+
+        if (bolasMismoColor) {
+            resultado = calcularPuntaje(valorBola1, valorBola2);
+        }
+
+        return resultado;
     }
 
     public static boolean validarMismoColor(String color1, String color2) {
