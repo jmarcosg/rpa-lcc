@@ -21,12 +21,6 @@ public class BurbujasEnAccion {
             resultadoUsuario1 = jugarBurbujas(resultadoUsuario1);
             resultadoUsuario2 = jugarBurbujas(resultadoUsuario2);
 
-            System.out.println("res usu1: " + resultadoUsuario1);
-            System.out.println("res usu2: " + resultadoUsuario2);
-
-            System.out.println(resultadoUsuario1 % 7 == 0);
-            System.out.println(resultadoUsuario2 % 7 == 0);
-
             // Hasta que uno de los resultados sea distinto 0 y múltiplo de 7, la partida no para
             if ((resultadoUsuario1 % 7 == 0 && resultadoUsuario1 != 0) || (resultadoUsuario2 % 7 == 0 && resultadoUsuario2 != 0)) {
                 esFinPartida = true;
