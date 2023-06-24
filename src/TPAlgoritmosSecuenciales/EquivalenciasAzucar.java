@@ -1,4 +1,4 @@
-package TP04AlgoritmosSecuenciales;
+package TPAlgoritmosSecuenciales;
 
 import java.util.Scanner;
 

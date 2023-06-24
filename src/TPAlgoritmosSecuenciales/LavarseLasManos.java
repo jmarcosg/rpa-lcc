@@ -1,4 +1,4 @@
-package TP04AlgoritmosSecuenciales;
+package TPAlgoritmosSecuenciales;
 
 public class LavarseLasManos {
     public static void main(String[] args) {
