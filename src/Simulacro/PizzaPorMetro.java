@@ -8,7 +8,7 @@ public class PizzaPorMetro {
         int cantMetros, pizzaMasGrande = 0;
         double recaudacionTotal = 0, precioVenta;
         String tipoPizza, respuesta;
-        boolean finPrograma = false, valoresCorrectos = false;
+        boolean finPrograma = false, valoresCorrectos;
 
         do {
             System.out.print("Ingrese la cantidad de metros: ");
