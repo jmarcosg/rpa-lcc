@@ -20,6 +20,8 @@ public class PizzaPorMetro {
 
             if (valoresCorrectos) {
                 precioVenta = calcularPrecioPizza(tipoPizza, cantMetros);
+                System.out.println("Valor de esta venta: $" + precioVenta);
+
                 recaudacionTotal = acumularRecaudacion(recaudacionTotal, precioVenta);
                 pizzaMasGrande = calcularPizzaMasGrande(pizzaMasGrande, cantMetros);
 
@@ -33,6 +35,7 @@ public class PizzaPorMetro {
             }
         } while (!finPrograma);
 
+        // muestro resultados una vez finalizado el ingreso de datos
         System.out.println("Total del día: $" + recaudacionTotal);
         System.out.println("Pizza más grande del día: " + pizzaMasGrande + "m");
     }
