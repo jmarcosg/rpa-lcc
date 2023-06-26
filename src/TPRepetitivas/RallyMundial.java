@@ -29,6 +29,8 @@ public class RallyMundial {
 
             if (cantPilotos > 0) {
                 System.out.println("---- Inicio tramo " + tramo + " ----");
+
+                // Solicito los datos de los pilotos para el tramo actual
                 for (int i = 1; i <= cantPilotos; i++) {
                     System.out.print("Ingrese el número del auto del piloto " + i + ": ");
                     numeroAuto = sc.nextInt();
@@ -36,10 +38,10 @@ public class RallyMundial {
                     tiempoUtilizadoEnSegs = sc.nextInt();
 
                     if (numeroAuto > 0 && tiempoUtilizadoEnSegs > 0) {
-                        if (tramo == 1 && tiempoUtilizadoEnSegs < tiempoGanador) {
+                        if (tramo == 1 && tiempoUtilizadoEnSegs < tiempoGanador) { // Si es el tramo 1, reemplazo el valor del tiempoGanador
                             tiempoGanador = tiempoUtilizadoEnSegs;
                             numeroAutoGanador = numeroAuto;
-                        } else if (tramo > 1 && tiempoUtilizadoEnSegs < tiempoGanador) {
+                        } else if (tramo > 1 && tiempoUtilizadoEnSegs < tiempoGanador) { // Sino, le sumo para el total
                             tiempoGanador += tiempoUtilizadoEnSegs;
                             numeroAutoGanador = numeroAuto;
                         }
